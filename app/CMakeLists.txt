@@ -73,7 +73,8 @@ add_library( # Sets the name of the library.
 #        src/main/cpp/core/debugger.c
         src/main/cpp/core/disasm.c
         src/main/cpp/core/dismem.c
-        src/main/cpp/core/display.c
+#		src/main/cpp/core/display.c
+		src/main/cpp/patch/display_ex.c
         src/main/cpp/core/disrpl.c
 #        src/main/cpp/core/Emu48.c #-> To rewrite
         src/main/cpp/core/engine.c

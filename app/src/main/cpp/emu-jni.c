@@ -1370,12 +1370,12 @@ JNIEXPORT jint JNICALL Java_org_emulator_calculator_NativeLib_getScreenHeightNat
     return SCREENHEIGHT;
 }
 JNIEXPORT jint JNICALL Java_org_emulator_calculator_NativeLib_getLCDBackgroundColor(JNIEnv *env, jobject thisz) {
-	if (hLcdDC && hLcdDC->realizedPalette && hLcdDC->realizedPalette->paletteLog &&
-	    hLcdDC->realizedPalette->paletteLog->palPalEntry) {
-		PALETTEENTRY *palPalEntry = hLcdDC->realizedPalette->paletteLog->palPalEntry;
-		return palPalEntry[0].peRed << 16 | palPalEntry[0].peGreen << 8 | palPalEntry[0].peBlue;
+	DWORD dwColor = GetKMLColor(32);
+	if (dwColor == 0xFFFFFFFF) { // display.c: #define I 0xFFFFFFFF						// ignore
+		// if background color is undefined, use color 0 for compatibility
+		dwColor = GetKMLColor(0);
 	}
-	return -1;
+	return (jint)dwColor;
 }
 
 JNIEXPORT void JNICALL Java_org_emulator_calculator_NativeLib_commEvent(JNIEnv *env, jclass clazz, jint commId, jint eventMask) {

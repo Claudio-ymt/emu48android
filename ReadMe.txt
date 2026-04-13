@@ -58,6 +58,11 @@ LINKS
 
 CHANGES
 
+Version 3.1 (2026-04-XX)
+
+- Fix pixel "borders" color when contrast is not the default.
+
+
 Version 3.0 (2025-11-21)
 
 - Fix the settings "Hide the status/navigations bar".

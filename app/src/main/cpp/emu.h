@@ -13,3 +13,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #include "core/Emu48.h"
+
+// Display_ex.c
+extern DWORD GetKMLColor(UINT index);
