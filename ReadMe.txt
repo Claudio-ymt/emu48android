@@ -1,3 +1,25 @@
+# Emu48 Android - Web/Emscripten Fork
+
+This repository is a fork of [`dgis/emu48android`](https://github.com/dgis/emu48android).
+
+This fork adds a web/Emscripten version of the emulator, located in the `web/` directory.
+
+The original Android project remains available in the original source tree.
+
+## Web version
+
+The web version is located in:
+
+\emu48android\web
+
+for build instructions, ROM placement, and local execution see
+
+web\README.md
+
+## Original Android project description
+
+The following section is from the original Emu48 Android project.
+
 DESCRIPTION
 
 This project ports the Windows application Emu48 written in C to Android.
