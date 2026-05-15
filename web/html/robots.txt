@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emu50g.com/sitemap.xml

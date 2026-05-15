@@ -1,9 +1,60 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>HP 50g Online</title>
+
+  <!-- Primary Meta Tags -->
+
+  <title>HP 50g Online - Free Web Calculator Emulator</title>
+  <meta name="title" content="HP 50g Online - Free Web Calculator Emulator">
+  <meta name="description" content="Use the HP 50g graphing calculator online, free, directly in your browser. No download required. Works on mobile and desktop. Full emulator with all functions of the original HP 50g.">
+  <meta name="keywords" content="hp 50g, hp50g online, hp 50g emulator, hp 50g web, hp 50g calculator, graphing calculator online, hp calculator emulator, hp 50g free, calculator online">
+  <meta name="author" content="Claudio_ymt">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://emu50g.com/">
+  <!-- Favicon (SVG inline, no external file needed) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a1a1a'/%3E%3Crect x='2' y='2' width='60' height='60' rx='10' fill='none' stroke='%236af' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='system-ui,-apple-system,sans-serif' font-size='28' font-weight='600' fill='%23ffffff' text-anchor='middle'%3E50g%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://emu50g.com/">
+  <meta property="og:title" content="HP 50g Online - Free Web Calculator Emulator">
+  <meta property="og:description" content="Use the HP 50g graphing calculator online, free, directly in your browser. No download required.">
+  <meta property="og:site_name" content="HP 50g Online">
+  <meta property="og:image" content="https://emu50g.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HP 50g Online - Free Web Calculator Emulator">
+
+  <!-- Twitter -->
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://emu50g.com/">
+  <meta property="twitter:title" content="HP 50g Online - Free Web Calculator Emulator">
+  <meta property="twitter:description" content="Use the HP 50g graphing calculator online, free, directly in your browser.">
+  <meta property="twitter:image" content="https://emu50g.com/og-image.png">
+
+  <!-- Schema.org structured data -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HP 50g Online",
+    "url": "https://emu50g.com/",
+    "description": "Free online HP 50g graphing calculator emulator running in the browser.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any (web browser)",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
   <style>
   * { box-sizing: border-box; }
   
@@ -67,6 +118,40 @@
   .info a:hover {
     text-decoration: underline;
   }
+  .info h2 {
+    font-size: 0.95em;
+    color: #aaa;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .info details {
+    margin-top: 10px;
+    border-top: 1px solid #2a2a2a;
+    padding-top: 8px;
+  }
+  .info details summary {
+    cursor: pointer;
+    color: #aaa;
+    font-size: 0.9em;
+    padding: 4px 0;
+    list-style: none;
+    user-select: none;
+  }
+  .info details summary::-webkit-details-marker {
+    display: none;
+  }
+  .info details summary::before {
+    content: "+ ";
+    color: #6af;
+  }
+  .info details[open] summary::before {
+    content: "- ";
+  }
+  .info details p {
+    margin: 6px 0;
+    font-size: 0.95em;
+  }
   
   .ad-fixed {
     position: fixed;
@@ -85,7 +170,7 @@
     padding-bottom: env(safe-area-inset-bottom);
   }
   
-  /* Bot�es de scroll flutuantes (apenas mobile) */
+  /* Bot?es de scroll flutuantes (apenas mobile) */
   .scroll-btns {
     position: fixed;
     right: 12px;
@@ -191,48 +276,78 @@
 </head>
 <body>
   
-  <div class="loader" id="loader">
+    <div class="loader" id="loader">
     <div class="loader-spinner"></div>
-    <div class="loader-text">Carregando calculadora...</div>
-    <div class="loader-subtext">Pode levar alguns segundos no primeiro acesso</div>
+    <div class="loader-text">Loading calculator...</div>
+    <div class="loader-subtext">May take a few seconds on first visit</div>
   </div>
   
   <div class="calc-wrap">
     <canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
   </div>
 
+
   <section class="info">
     <h1>HP 50g Online</h1>
-    <p>Made by Claudio_ymt</p>
-    <p>Contact: claudiojrrs@hotmail.com</p>
+    <p>Free web emulator of the <strong>HP 50g graphing calculator</strong>. Runs in any modern browser, no install required, works on desktop and mobile.</p>
+    <h2>Features</h2>
+    <p>Full RPL programming, symbolic math (CAS), graphing, matrices, equation solver, unit conversions - all functions of the original HP 50g.</p>
+    <h2>How to use</h2>
+    <p>Tap the keys as you would on the physical calculator. On mobile, use the arrow buttons on the right to scroll through all keys.</p>
+    <h2>About</h2>
+    <p>Made by Claudio_ymt - <a href="mailto:claudiojrrs@hotmail.com">claudiojrrs@hotmail.com</a></p>
     <p>Based on the open source project <a href="https://github.com/Claudio-ymt/emu48android" target="_blank" rel="noopener">emu48android</a>, distributed under the GPL-2.0 license.</p>
+    <details>
+      <summary>Privacy Policy</summary>
+      <p>This website does not collect personal data from its users. No account, registration, or login is required to use the calculator.</p>
+      <p><strong>Cookies and local storage:</strong> the emulator may save calculator state (memory, settings) locally in your browser. This data never leaves your device.</p>
+      <p><strong>Analytics:</strong> we use Cloudflare's built-in analytics, which counts page views and aggregate traffic data without identifying individual visitors. No third-party tracking cookies are used by us directly.</p>
+      <p><strong>Advertising:</strong> this site may display ads served by Google AdSense. Google may use cookies to serve ads based on prior visits to this and other websites. You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">google.com/settings/ads</a>.</p>
+      <p><strong>Contact:</strong> for privacy concerns, email claudiojrrs@hotmail.com.</p>
+    </details>
+    <details>
+      <summary>Terms of Use</summary>
+      <p>This emulator is provided free of charge, "as is", without warranty of any kind. Use at your own risk.</p>
+      <p>The calculator is intended for educational and personal use. The author is not responsible for any loss or damage resulting from its use, including but not limited to incorrect calculations.</p>
+      <p>The emulator core is distributed under the GNU General Public License v2.0. Source code is available at the <a href="https://github.com/Claudio-ymt/emu48android" target="_blank" rel="noopener">project repository</a>.</p>
+      <p>HP and HP 50g are trademarks of HP Inc. This project is not affiliated with, endorsed by, or sponsored by HP Inc.</p>
+    </details>
+    <details>
+      <summary>Contact</summary>
+      <p>Questions, bug reports, or suggestions: <a href="mailto:claudiojrrs@hotmail.com">claudiojrrs@hotmail.com</a></p>
+      <p>You can also open an issue on the <a href="https://github.com/Claudio-ymt/emu48android/issues" target="_blank" rel="noopener">GitHub repository</a>.</p>
+    </details>
   </section>
 
   <div class="ad-fixed">
-    [espaço reservado para anúncio]
+    [ad space]
   </div>
 
   <div class="scroll-btns">
-    <button class="scroll-btn" id="scrollUpBtn" aria-label="Rolar para cima">▲</button>
-    <button class="scroll-btn" id="scrollDownBtn" aria-label="Rolar para baixo">▼</button>
+    <button class="scroll-btn" id="scrollUpBtn" aria-label="Scroll up">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    <button class="scroll-btn" id="scrollDownBtn" aria-label="Scroll down">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
   </div>
 
   <script>
     var Module = {
       canvas: document.getElementById('canvas'),
       onRuntimeInitialized: function() {
-        // Emulador pronto — esconde o loader
+        // Emulador pronto   esconde o loader
         var loader = document.getElementById('loader');
         if (loader) {
           loader.classList.add('hidden');
-          // Remove do DOM depois da animação de fade
+          // Remove do DOM depois da anima  o de fade
           setTimeout(function() { loader.remove(); }, 500);
         }
       }
     };
   </script>
   <script>
-    // Botões de scroll: rolam a página em ~70% da altura visível por clique
+    // Bot es de scroll: rolam a p gina em ~70% da altura vis vel por clique
     (function() {
       var upBtn = document.getElementById('scrollUpBtn');
       var downBtn = document.getElementById('scrollDownBtn');
@@ -249,6 +364,16 @@
   <script src="emu48.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
