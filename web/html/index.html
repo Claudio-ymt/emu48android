@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>HP 50g Online</title>
+  <style>
+  * { box-sizing: border-box; }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a;
+    color: #eee;
+    font-family: system-ui, -apple-system, sans-serif;
+    overscroll-behavior-y: contain;
+  }
+  
+  body {
+    padding-top: 8px;
+    padding-bottom: 70px;
+  }
+  
+  .calc-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  #canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    touch-action: pan-y;          /* permite scroll vertical */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+  
+  .info {
+    padding: 16px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+    color: #888;
+    font-size: 0.8em;
+  }
+  
+  .info h1 {
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #aaa;
+    font-weight: 500;
+  }
+  
+  .info p {
+    margin: 4px 0;
+  }
+  
+  .info a {
+    color: #6af;
+    text-decoration: none;
+  }
+  
+  .info a:hover {
+    text-decoration: underline;
+  }
+  
+  .ad-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #000;
+    border-top: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 0.85em;
+    z-index: 100;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Bot�es de scroll flutuantes (apenas mobile) */
+  .scroll-btns {
+    position: fixed;
+    right: 12px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 99;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .scroll-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(50, 50, 50, 0.85);
+    border: 1px solid #555;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
+  
+  .scroll-btn:active {
+    background: rgba(80, 80, 80, 0.95);
+  }
+  
+  /* Tela de loading */
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.4s ease;
+  }
+  
+  .loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .loader-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #333;
+    border-top-color: #6af;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .loader-text {
+    color: #ccc;
+    font-size: 0.95em;
+    margin-bottom: 6px;
+  }
+  
+  .loader-subtext {
+    color: #777;
+    font-size: 0.8em;
+  }
+  
+  /* DESKTOP: calculadora centralizada, escalando pela altura */
+  @media (min-width: 768px) {
+    body {
+      padding-top: 20px;
+    }
+    
+    .calc-wrap {
+      height: calc(100vh - 90px);   /* viewport menos ad e padding */
+      align-items: center;
+    }
+    
+    #canvas {
+      width: auto !important;        /* sobrescreve qualquer width inline */
+      height: 100% !important;
+      max-height: calc(100vh - 90px);
+      max-width: 95vw;
+    }
+    
+    .scroll-btns {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+  
+  <div class="loader" id="loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">Carregando calculadora...</div>
+    <div class="loader-subtext">Pode levar alguns segundos no primeiro acesso</div>
+  </div>
+  
+  <div class="calc-wrap">
+    <canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+  </div>
+
+  <section class="info">
+    <h1>HP 50g Online</h1>
+    <p>Made by Claudio_ymt</p>
+    <p>Contact: claudiojrrs@hotmail.com</p>
+    <p>Based on the open source project <a href="https://github.com/Claudio-ymt/emu48android" target="_blank" rel="noopener">emu48android</a>, distributed under the GPL-2.0 license.</p>
+  </section>
+
+  <div class="ad-fixed">
+    [espaço reservado para anúncio]
+  </div>
+
+  <div class="scroll-btns">
+    <button class="scroll-btn" id="scrollUpBtn" aria-label="Rolar para cima">▲</button>
+    <button class="scroll-btn" id="scrollDownBtn" aria-label="Rolar para baixo">▼</button>
+  </div>
+
+  <script>
+    var Module = {
+      canvas: document.getElementById('canvas'),
+      onRuntimeInitialized: function() {
+        // Emulador pronto — esconde o loader
+        var loader = document.getElementById('loader');
+        if (loader) {
+          loader.classList.add('hidden');
+          // Remove do DOM depois da animação de fade
+          setTimeout(function() { loader.remove(); }, 500);
+        }
+      }
+    };
+  </script>
+  <script>
+    // Botões de scroll: rolam a página em ~70% da altura visível por clique
+    (function() {
+      var upBtn = document.getElementById('scrollUpBtn');
+      var downBtn = document.getElementById('scrollDownBtn');
+      
+      function scrollBy(direction) {
+        var amount = window.innerHeight * 0.7 * direction;
+        window.scrollBy({ top: amount, left: 0, behavior: 'smooth' });
+      }
+      
+      upBtn.addEventListener('click', function() { scrollBy(-1); });
+      downBtn.addEventListener('click', function() { scrollBy(1); });
+    })();
+  </script>
+  <script src="emu48.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

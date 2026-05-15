@@ -1,29 +1,42 @@
 # Web/Emscripten version by Claudio_ymt
 
-This directory contains the web/Emscripten adaptation of Emu48 Android.
+This directory contains the web/Emscripten adaptation of Emu48 Android, packaged as a mobile-first website at `index.html`.
 
 ## License
 
 This web version is based on Emu48 Android.
-
-Emulator-derived files are licensed under the GNU General Public License v2.0.
+Emulator-derived files (`emu48.js`, `emu48.wasm`, `emu48.data`) are licensed under the GNU General Public License v2.0.
 See `../LICENSE-GPL.TXT`.
+
+The custom site layout (`index.html` and its embedded CSS/JS) is the original work of Claudio_ymt and only loads the GPL emulator artifacts at runtime.
+
+## Files
+
+- `index.html` — mobile-first calculator page (loader, scroll buttons, ad slot, footer).
+- `emu48.js` / `emu48.wasm` / `emu48.data` — Emscripten build outputs (GPL).
+- `build.ps1` — build script for regenerating the Emscripten artifacts.
+- `assets/` — location for ROM files (not included, see below).
 
 ## ROM file
 
 This repository does not include calculator ROM files.
+To run the emulator, place your ROM file in:
 
-To run the emulator, place your ROM file in the required location:
-
-\web\assets
+```
+web\assets\
+```
 
 Expected example:
 
-\web\assets\rom.50g
+```
+web\assets\rom.50g
+```
 
 The exact filename expected by the emulator is:
 
+```
 rom.50g
+```
 
 ## Build requirements
 
@@ -51,7 +64,7 @@ From the `web/` directory, run:
 .\build.ps1
 ```
 
-This generates the web build files used by the browser version.
+This regenerates `emu48.js`, `emu48.wasm`, and `emu48.data`.
 
 ## Run locally
 
@@ -61,13 +74,38 @@ From the `web/` directory:
 python -m http.server 8000
 ```
 
-Then open:
+Then open the custom site:
+
+```text
+http://localhost:8000/index.html
+```
+
+To test on a mobile device on the same Wi-Fi, find your machine's local IP (e.g. `ipconfig` on Windows) and open:
+
+```text
+http://:8000/
+```
+
+The original Emscripten test page is also available at:
 
 ```text
 http://localhost:8000/emu48.html
 ```
 
+## Site features
+
+The `index.html` page is intentionally minimal:
+
+- Mobile-first responsive layout (calculator fills the viewport width on mobile, fits the viewport height on desktop).
+- Loading screen shown until the WASM runtime is initialized.
+- Floating scroll buttons (mobile only) for reaching keys below the fold without conflicting with calculator taps.
+- Fixed bottom ad slot.
+- Discrete footer with credit and contact info.
+
 ## Notes
 
 The generated `.js` and `.wasm` files are build outputs. The corresponding source files and build script are included in this repository.
 
+## Contact
+
+Made by Claudio_ymt — claudiojrrs@hotmail.com
