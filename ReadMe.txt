@@ -2,19 +2,40 @@
 
 This repository is a fork of [`dgis/emu48android`](https://github.com/dgis/emu48android).
 
-This fork adds a web/Emscripten version of the emulator, located in the `web/` directory.
+This fork adds a **web/Emscripten port** of the emulator, located in the [`web/`](./web) directory, allowing the HP 48/49/50 series calculators to run directly in the browser via WebAssembly.
 
-The original Android project remains available in the original source tree.
+## What this fork adds
+
+- Web build of the emulator using Emscripten (`emu48.js`, `emu48.wasm`, `emu48.data`).
+- A custom mobile-first HTML page (`web/index.html`) with responsive layout, loading screen, floating scroll controls, and ad slot.
+- PowerShell build script for regenerating the web artifacts.
+
+The original Android project remains untouched in the source tree.
 
 ## Web version
 
 The web version is located in:
 
-\emu48android\web
+```
+emu48android/web/
+```
 
-for build instructions, ROM placement, and local execution see
+For build instructions, ROM placement, and local execution see [`web/README.md`](./web/README.md).
 
-web\README.md
+## Live demo
+
+*(Coming soon — will be linked once deployed.)*
+
+## License
+
+The emulator core remains under the **GNU General Public License v2.0** (see `LICENSE-GPL.TXT`).
+The custom web layout (`web/index.html`) is original work by Claudio_ymt.
+
+## Contact
+
+Made by Claudio_ymt — claudiojrrs@hotmail.com
+
+---
 
 ## Original Android project description
 
