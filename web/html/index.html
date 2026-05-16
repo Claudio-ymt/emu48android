@@ -5,6 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C690G5Z4SC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C690G5Z4SC');
+  </script>
+
   <!-- Primary Meta Tags -->
 
   <title>HP 50g Online - Calculator Emulator</title>
@@ -74,7 +83,7 @@
   
   body {
     padding-top: 8px;
-    padding-bottom: 70px;
+    padding-bottom: 8px;
   }
   
   .calc-wrap {
@@ -304,11 +313,12 @@
     <p>Based on the open source project <a href="https://github.com/Claudio-ymt/emu48android" target="_blank" rel="noopener">emu48android</a>, distributed under the GPL-2.0 license.</p>
     <details>
       <summary>Privacy Policy</summary>
-      <p>This website does not collect personal data from its users. No account, registration, or login is required to use the calculator.</p>
-      <p><strong>Cookies and local storage:</strong> the emulator may save calculator state (memory, settings) locally in your browser. This data never leaves your device.</p>
-      <p><strong>Analytics:</strong> we use Cloudflare's built-in analytics, which counts page views and aggregate traffic data without identifying individual visitors. No third-party tracking cookies are used by us directly.</p>
-      <p><strong>Advertising:</strong> this site may display ads served by Google AdSense. Google may use cookies to serve ads based on prior visits to this and other websites. You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">google.com/settings/ads</a>.</p>
-      <p><strong>Contact:</strong> for privacy concerns, email claudiojrrs@hotmail.com.</p>
+      <p>This website does not require account creation, registration, or login. No personal data is directly collected by the site owner.</p>
+      <p><strong>Cookies and local storage:</strong> the emulator may save calculator state (memory, settings) locally in your browser. This data stays on your device and is never transmitted to the site owner.</p>
+      <p><strong>Analytics:</strong> we use two analytics services. Cloudflare provides basic aggregate traffic statistics without using cookies. Google Analytics (gtag.js) is used to better understand visitor behavior; it sets cookies and may collect data such as approximate location (country/city level), device type, browser, pages visited, time on site, and referral source. This data is processed by Google according to their <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>. You can opt out of Google Analytics tracking by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+      <p><strong>Advertising:</strong> this site may display ads served by Google AdSense. Google and its partners may use cookies to serve ads based on prior visits to this and other websites. You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">google.com/settings/ads</a>.</p>
+      <p><strong>Your rights (GDPR / LGPD):</strong> if you are in the European Union or Brazil, you have the right to request access, correction, or deletion of any personal data processed about you. Since we do not directly store identifiable data, most requests should be directed to Google. For any privacy concern regarding this site, contact us at the email below.</p>
+      <p><strong>Contact:</strong> for privacy concerns, email <a href="mailto:claudiojrrs@hotmail.com">claudiojrrs@hotmail.com</a>.</p>
     </details>
     <details>
       <summary>Terms of Use</summary>
@@ -324,9 +334,11 @@
     </details>
   </section>
 
+  <!-- Ad slot hidden for now - re-enable when ads are configured
   <div class="ad-fixed">
     [ad space]
   </div>
+  -->
 
   <div class="scroll-btns">
     <button class="scroll-btn" id="scrollUpBtn" aria-label="Scroll up">
