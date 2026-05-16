@@ -7,7 +7,7 @@ This fork adds a **web/Emscripten port** of the emulator, located in the [`web/`
 ## What this fork adds
 
 - Web build of the emulator using Emscripten (`emu48.js`, `emu48.wasm`, `emu48.data`).
-- A custom mobile-first HTML page (`web/index.html`) with responsive layout, loading screen, floating scroll controls, and ad slot.
+- A custom HTML page 
 - PowerShell build script for regenerating the web artifacts.
 
 The original Android project remains untouched in the source tree.
@@ -24,7 +24,7 @@ For build instructions, ROM placement, and local execution see [`web/README.md`]
 
 ## Live demo
 
-*(Coming soon — will be linked once deployed.)*
+* emu50g.com *
 
 ## License
 

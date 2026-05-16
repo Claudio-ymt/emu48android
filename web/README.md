@@ -92,16 +92,6 @@ The original Emscripten test page is also available at:
 http://localhost:8000/emu48.html
 ```
 
-## Site features
-
-The `index.html` page is intentionally minimal:
-
-- Mobile-first responsive layout (calculator fills the viewport width on mobile, fits the viewport height on desktop).
-- Loading screen shown until the WASM runtime is initialized.
-- Floating scroll buttons (mobile only) for reaching keys below the fold without conflicting with calculator taps.
-- Fixed bottom ad slot.
-- Discrete footer with credit and contact info.
-
 ## Notes
 
 The generated `.js` and `.wasm` files are build outputs. The corresponding source files and build script are included in this repository.
