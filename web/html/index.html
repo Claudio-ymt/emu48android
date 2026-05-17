@@ -90,6 +90,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    overflow: hidden;
   }
   
   #canvas {
@@ -101,6 +102,7 @@
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
+    margin-top: -18%;             /* esconde topo no mobile */
   }
   
   .info {
@@ -187,21 +189,21 @@
   /* Bot?es de scroll flutuantes (apenas mobile) */
   .scroll-btns {
     position: fixed;
-    right: 12px;
+    right: 6px;
     bottom: 80px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     z-index: 99;
     padding-bottom: env(safe-area-inset-bottom);
   }
   
   .scroll-btn {
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: rgba(50, 50, 50, 0.85);
-    border: 1px solid #555;
+    background: rgba(25, 40, 70, 0.75);
+    border: 1px solid rgba(80, 120, 180, 0.5);
     color: #fff;
     font-size: 20px;
     display: flex;
@@ -215,7 +217,7 @@
   }
   
   .scroll-btn:active {
-    background: rgba(80, 80, 80, 0.95);
+    background: rgba(40, 65, 110, 0.9);
   }
   
   /* Tela de loading */
@@ -280,6 +282,11 @@
       height: 100% !important;
       max-height: calc(100vh - 90px);
       max-width: 95vw;
+      margin-top: 0 !important;      /* desfaz o corte do mobile */
+    }
+
+    .calc-wrap {
+      overflow: visible;             /* mostra tudo no desktop */
     }
     
     .scroll-btns {
@@ -342,10 +349,10 @@
 
   <div class="scroll-btns">
     <button class="scroll-btn" id="scrollUpBtn" aria-label="Scroll up">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
     <button class="scroll-btn" id="scrollDownBtn" aria-label="Scroll down">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </button>
   </div>
 
@@ -370,7 +377,7 @@
       var downBtn = document.getElementById('scrollDownBtn');
       
       function scrollBy(direction) {
-        var amount = window.innerHeight * 0.7 * direction;
+        var amount = window.innerHeight * 0.45 * direction;
         window.scrollBy({ top: amount, left: 0, behavior: 'smooth' });
       }
       
